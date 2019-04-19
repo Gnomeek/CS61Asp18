@@ -1,0 +1,4 @@
+'repeated-correct', (0, 70)
+'double_eights-correct', (512, 70)
+'both_positive-correct', (1024, 70)
+'falling-correct', (1536, 70)
