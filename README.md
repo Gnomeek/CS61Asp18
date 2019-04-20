@@ -17,9 +17,25 @@ nothing really happened...
 - [x] lab01
 - [ ] project01(Hog)
 #### COURSE 2
-- [] lecture
-- [] hw02
+- [x] lecture
+- [x] hw02
 #### COURSE 3
-- [] lecture
+- [ ] lecture
+#### EXTRA COURSE 1
+> Newton's Method
+- [ ] lecture
+
+### WEEK 3
+#### COURSE 1
+- [x] lecture
+- [x] lab02
+- [ ] project01(Hog)
+#### COURSE 2
+- [x] lecture
+- [x] hw03
+#### COURSE 3
+- [ ] lecture
+- [ ] project01(Hog Contest)
+
 
 
