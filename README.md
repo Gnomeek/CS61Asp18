@@ -1,15 +1,20 @@
 # CS61Asp18
-This repository contains lab, project, and homework of CS61A(UCB) in the spring of 2018.
+This repository contains lab, project, and homework of *CS61A(UCB)** in the * spring of 2018*.
 
 All the codes and comments are written by myself.
 
 So it would be great for me to receive your stars and I hope that this can really help you.
 
 some relevant url:
+
 [Book](http://composingprograms.com/)
+
 [CoursePage](https://inst.eecs.berkeley.edu/~cs61a/sp18/)
-[LectureVideo(Bilibili version)](https://www.bilibili.com/video/av20538548?)
-[LectureVideo(YouTube version](https://www.youtube.com/user/papajohnno)
+
+For chinese students[LectureVideo(Bilibili version)](https://www.bilibili.com/video/av20538548?)
+
+For other people[LectureVideo(YouTube version)](https://www.youtube.com/user/papajohnno)
+
 
 ## WEEK 1
 
