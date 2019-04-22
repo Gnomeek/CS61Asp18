@@ -43,21 +43,21 @@ nothing really happened...
 - [x] hw02
 
 #### COURSE 3
-- [ ] lecture
+- [x] lecture
 
 #### EXTRA COURSE 1
 > Newton's Method
-- [ ] lecture
+- [x] lecture
 
 
 ## WEEK 3
 #### COURSE 1
 - [x] lecture
-- [x] lab02
+- [ ] lab02
 
 #### COURSE 2
-- [x] lecture
-- [x] hw03
+- [ ] lecture
+- [ ] hw03
 
 #### COURSE 3
 - [ ] lecture
