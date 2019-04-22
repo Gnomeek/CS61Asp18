@@ -33,6 +33,7 @@ Finally, I find where the bug is. There is no relationship between the *exceptio
 
 Sometimes, we delete the 
 > say=say(score0,score1)
+
 in the *play function*,which also leads to the exception as above.So adding just one row can solve every problems(which makes me looks like a idiot)
 
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
