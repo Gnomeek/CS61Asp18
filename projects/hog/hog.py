@@ -199,6 +199,61 @@ def announce_highest(who, previous_high=0, previous_score=0):
     assert who == 0 or who == 1, 'The who argument should indicate a player.'
     # BEGIN PROBLEM 7
     "*** YOUR CODE HERE ***"
+    def say(score0, score1):
+        current_score = score0 if who == 0 else score1
+        gain = current_score - previous_score
+        if gain > previous_high:
+            if gain == 1:
+                print("{} point! That's the biggest gain yet for Player {}".format(
+                gain, who))
+            else:
+                print("{} points! That's the biggest gain yet for Player {}".format(
+                gain, who))                
+        return announce_highest(who, max(gain, previous_high), current_score)
+    return say
+
+    '''
+    def say(score0,score1):
+        previous_high_local = previous_high
+        diff = 0
+        previous_score_local = 0
+        if who == 0:
+            if score0 > previous_score:
+                diff = score0 - previous_score
+            previous_score_local = score0
+
+        if who == 1:
+            if score1 > previous_score:
+                diff = score1 - previous_score
+            previous_score_local = score1
+
+        if diff > previous_high_local:
+            previous_high_local = diff
+            if diff == 1:
+                print(diff,"point! That's the biggest gain yet for Player",who)
+            else:
+                print(diff,"points! That's the biggest gain yet for Player",who)
+        return announce_highest(who, previous_high_local, previous_score_local)
+    
+    return say
+        
+    def say(s0,s1):
+        nonlocal previous_score, previous_high
+        if who == 0:
+            current_score = s0
+        else:
+            current_score = s1
+        diff = current_score - previous_score
+        if diff > previous_high:
+            if diff == 1:
+                print(diff,"point! That's the biggest gain yet for Player",who)
+            else:
+                print(diff,"points! That's the biggest gain yet for Player",who)
+            #previous_high = diff
+        #previous_score = current_score
+        return announce_highest(who,diff,current_score)
+    return say
+    '''
     # END PROBLEM 7
 
 

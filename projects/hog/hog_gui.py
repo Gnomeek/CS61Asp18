@@ -364,7 +364,7 @@ def run_GUI(computer=False):
 select_bg = '#a6d785'
 bg='#ffffff'
 fg='#000000'
-font=('Arial', 14)
+font=('consolas', 14)
 height=5  # Lines
 
 frame_theme = {

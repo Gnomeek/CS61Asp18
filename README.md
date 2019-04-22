@@ -53,7 +53,8 @@ nothing really happened...
 ## WEEK 3
 #### COURSE 1
 - [x] lecture
-- [ ] lab02
+- [x] lab02
+- [ ] HogCheckpoint2 (project01)
 
 #### COURSE 2
 - [ ] lecture
@@ -61,7 +62,7 @@ nothing really happened...
 
 #### COURSE 3
 - [ ] lecture
-- [ ] HogCheckpoint2&3 (project01)
+- [ ] HogCheckpoint3 (project01)
 
 
 
