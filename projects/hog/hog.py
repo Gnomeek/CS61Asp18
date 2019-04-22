@@ -68,6 +68,7 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
     # END PROBLEM 3
 
 
+
 def is_swap(score0, score1):
     """Return whether one of the scores is an integer multiple of the other."""
     # BEGIN PROBLEM 4
@@ -113,20 +114,27 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     """
     player = 0  # Which player is about to take a turn, 0 (first) or 1 (second)
     # BEGIN PROBLEM 5
+    "*** YOUR CODE HERE ***"
     while score0 < goal and score1 < goal:
         if player == 0:
-            score0 += take_turn(strategy0(score0,score1),score1,dice)
-            if is_swap(score0,score1):
-                score0, score1 = score1, score0
-            player = other(player)
+            current_score, opponent_score, current_strategy = score0, score1, strategy0
         else:
-            score1 += take_turn(strategy1(score1,score0),score0,dice)
-            if is_swap(score1,score0):
-                score0, score1 = score1, score0
-            player = other(player)
+            current_score, opponent_score, current_strategy = score1, score0, strategy1
+        current_score += take_turn(current_strategy(current_score, opponent_score), opponent_score, dice)
+        if player == 0:
+            score0 = current_score
+        else:
+            score1 = current_score
+        if is_swap(score0, score1):
+            score0, score1 = score1, score0
+        player = other(player)
+        say = say(score0, score1)
     # END PROBLEM 5
+    # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
+    # BEGIN PROBLEM 6
+        say=say(score0,score1)
+    # END PROBLEM 6
     return score0, score1
-
 
 #######################
 # Phase 2: Commentary #
@@ -199,61 +207,20 @@ def announce_highest(who, previous_high=0, previous_score=0):
     assert who == 0 or who == 1, 'The who argument should indicate a player.'
     # BEGIN PROBLEM 7
     "*** YOUR CODE HERE ***"
-    def say(score0, score1):
-        current_score = score0 if who == 0 else score1
+    def announce(score0, score1):
+        if who == 0:
+            current_score = score0
+        else:
+            current_score = score1
         gain = current_score - previous_score
         if gain > previous_high:
             if gain == 1:
-                print("{} point! That's the biggest gain yet for Player {}".format(
-                gain, who))
+                print("1 point! That's the biggest gain yet for Player {0}".format(who))
             else:
-                print("{} points! That's the biggest gain yet for Player {}".format(
-                gain, who))                
-        return announce_highest(who, max(gain, previous_high), current_score)
-    return say
-
-    '''
-    def say(score0,score1):
-        previous_high_local = previous_high
-        diff = 0
-        previous_score_local = 0
-        if who == 0:
-            if score0 > previous_score:
-                diff = score0 - previous_score
-            previous_score_local = score0
-
-        if who == 1:
-            if score1 > previous_score:
-                diff = score1 - previous_score
-            previous_score_local = score1
-
-        if diff > previous_high_local:
-            previous_high_local = diff
-            if diff == 1:
-                print(diff,"point! That's the biggest gain yet for Player",who)
-            else:
-                print(diff,"points! That's the biggest gain yet for Player",who)
-        return announce_highest(who, previous_high_local, previous_score_local)
-    
-    return say
-        
-    def say(s0,s1):
-        nonlocal previous_score, previous_high
-        if who == 0:
-            current_score = s0
-        else:
-            current_score = s1
-        diff = current_score - previous_score
-        if diff > previous_high:
-            if diff == 1:
-                print(diff,"point! That's the biggest gain yet for Player",who)
-            else:
-                print(diff,"points! That's the biggest gain yet for Player",who)
-            #previous_high = diff
-        #previous_score = current_score
-        return announce_highest(who,diff,current_score)
-    return say
-    '''
+                print("{0} points! That's the biggest gain yet for Player {1}".format(gain, who))
+            return announce_highest(who, gain, current_score)
+        return announce_highest(who, previous_high, current_score)
+    return announce
     # END PROBLEM 7
 
 

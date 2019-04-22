@@ -54,7 +54,7 @@ nothing really happened...
 #### COURSE 1
 - [x] lecture
 - [x] lab02
-- [ ] HogCheckpoint2 (project01)
+- [x] HogCheckpoint2 (project01)
 
 #### COURSE 2
 - [ ] lecture
