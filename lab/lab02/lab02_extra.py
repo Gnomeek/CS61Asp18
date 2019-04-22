@@ -36,6 +36,7 @@ def composite_identity(f, g):
     False
     """
     "*** YOUR CODE HERE ***"
+    return lambda x : True if compose1(f,g)(x) == compose1(g,f)(x) else False
 
 def count_cond(condition):
     """Returns a function with one parameter N that counts all the numbers from
@@ -63,6 +64,14 @@ def count_cond(condition):
     8
     """
     "*** YOUR CODE HERE ***"
+    def calculation(n):
+        i, count = 1, 0
+        while i <= n:
+            if condition(n,i):
+                count += 1
+            i += 1
+        return count
+    return calculation
 
 def cycle(f1, f2, f3):
     """Returns a function that is itself a higher-order function.
@@ -91,3 +100,19 @@ def cycle(f1, f2, f3):
     19
     """
     "*** YOUR CODE HERE ***"
+    def circleOutside(n):
+        def functionDef(m):
+            if m % 3 == 1:
+                return f1
+            if m % 3 == 2:
+                return f2
+            if m % 3 == 0:
+                return f3
+        def circleInside(x):
+            count = 1
+            while count <= n:
+                x = functionDef(count)(x)
+                count += 1
+            return x
+        return circleInside
+    return circleOutside
