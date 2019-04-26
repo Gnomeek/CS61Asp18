@@ -57,7 +57,7 @@ nothing really happened...
 - [x] HogCheckpoint2 (project01)
 
 #### COURSE 2
-- [ ] lecture
+- [x] lecture
 - [ ] hw03
 
 #### COURSE 3
