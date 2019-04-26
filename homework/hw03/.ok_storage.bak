@@ -1,0 +1,7 @@
+'has_seven-correct', (0, 70)
+'summation-correct', (512, 70)
+'accumulate-correct', (1024, 70)
+'summation_using_accumulate-correct', (1536, 70)
+'product_using_accumulate-correct', (2048, 70)
+'filtered_accumulate-correct', (2560, 70)
+'make_repeater-correct', (3072, 70)
