@@ -181,7 +181,7 @@ def make_repeater(f, n):
     term : f
     n : n
     x : base
-
+    combiner : composel
     '''
     return accumulate(compose1, lambda x : x, n, lambda x: f)
 
@@ -208,11 +208,11 @@ def successor(n):
 def one(f):
     """Church numeral 1: same as successor(zero)"""
     "*** YOUR CODE HERE ***"
-
+    return lambda x: f(x)
 def two(f):
     """Church numeral 2: same as successor(successor(zero))"""
     "*** YOUR CODE HERE ***"
-
+    return lambda x: f(f(x))
 three = successor(two)
 
 def church_to_int(n):
@@ -228,6 +228,7 @@ def church_to_int(n):
     3
     """
     "*** YOUR CODE HERE ***"
+    return  n(lambda x: x + 1)(0)
 
 def add_church(m, n):
     """Return the Church numeral for m + n, for Church numerals m and n.
@@ -236,6 +237,7 @@ def add_church(m, n):
     5
     """
     "*** YOUR CODE HERE ***"
+    return lambda f: lambda x: m(f)(n(f)(x))
 
 def mul_church(m, n):
     """Return the Church numeral for m * n, for Church numerals m and n.
@@ -247,6 +249,7 @@ def mul_church(m, n):
     12
     """
     "*** YOUR CODE HERE ***"
+    return lambda f: lambda x: m(n(f))(x)
 
 def pow_church(m, n):
     """Return the Church numeral m ** n, for Church numerals m and n.
@@ -257,3 +260,4 @@ def pow_church(m, n):
     9
     """
     "*** YOUR CODE HERE ***"
+    return lambda f: lambda x: (n(m))(f)(x)
