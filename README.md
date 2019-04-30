@@ -1,5 +1,3 @@
-
-
 # CS61Asp18
 
 This repository contains lab, project, and homework of **CS61A(UCB)** in the  *spring of 2018*.
@@ -63,8 +61,6 @@ nothing really happened...
 #### COURSE 2
 - [x] lecture
 - [x] hw03
-- [ ] disc02
-- [ ] examprep01
 
 #### COURSE 3
 - [x] lecture
@@ -81,12 +77,9 @@ nothing really happened...
 #### COURSE 1
 
 - [ ] lecture
-- [ ] lab03
+- [x] lab03
 
 #### MIDTERM 1
-
-- [ ] exam prep02
-- [ ] exam
 
 #### COURSE 2
 
