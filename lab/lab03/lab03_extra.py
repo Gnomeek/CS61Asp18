@@ -141,3 +141,16 @@ def ten_pairs(n):
     6
     """
     "*** YOUR CODE HERE ***"
+    
+    def digits_count(x,digits):
+        if x == 0:
+            return 0
+        if x % 10 == digits:
+            return digits_count(x // 10, digits) + 1
+        else:
+            return digits_count(x // 10, digits)
+
+    if n < 10:
+        return 0
+
+    return ten_pairs(n // 10) + digits_count(n // 10, 10 - n % 10)
