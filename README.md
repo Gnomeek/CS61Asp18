@@ -76,14 +76,14 @@ nothing really happened...
 
 #### COURSE 1
 
-- [ ] lecture
+- [x] lecture
 - [x] lab03
 
 #### MIDTERM 1
 
 #### COURSE 2
 
-- [ ] lecture
+- [x] lecture
 - [ ] hw04
 
 
