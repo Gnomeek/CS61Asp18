@@ -26,8 +26,11 @@ def taxicab(a, b):
     >>> taxicab(ess_a_bagel, times_square)
     9
     """
-    "*** YOUR CODE HERE ***"
+    streetans = abs(street(a) - street(b))
+    avenueans = abs(avenue(a) - avenue(b))
+    return streetans + avenueans
 
+from math import sqrt
 def squares(s):
     """Returns a new list containing square roots of the elements of the
     original list that are perfect squares.
@@ -39,7 +42,11 @@ def squares(s):
     >>> squares(seq)
     []
     """
-    "*** YOUR CODE HERE ***"
+    ans = []
+    for ele in s:
+        if sqrt(ele) == round(sqrt(ele)):
+            ans.append(round(sqrt(ele)))
+    return ans
 
 def g(n):
     """Return the value of G(n), computed recursively.
@@ -58,7 +65,10 @@ def g(n):
     >>> check(HW_SOURCE_FILE, 'g', ['While', 'For'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    if n <= 3:
+        return n
+    else:
+        return g(n - 1) + 2 * g(n - 2) + 3 * g(n - 3)
 
 def g_iter(n):
     """Return the value of G(n), computed iteratively.
@@ -77,7 +87,15 @@ def g_iter(n):
     >>> check(HW_SOURCE_FILE, 'g_iter', ['Recursion'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    ans = [0,]
+    m = 1
+    while m <= n:
+        if m <= 3:
+            ans.append(m)
+        else:
+            ans.append(ans[m - 1] + 2 * ans[m - 2] + 3 * ans[m - 3])
+        m += 1
+    return ans[n]
 
 def pingpong(n):
     """Return the nth element of the ping-pong sequence.
@@ -147,7 +165,10 @@ def count_change(amount):
     >>> count_change(100)
     9828
     """
-    "*** YOUR CODE HERE ***"
+    if amount <= 0:
+        return 0
+    else:
+        return count_change(amount - 4) + count_change(amount - 2)
 
 ###################
 # Extra Questions #
