@@ -165,10 +165,22 @@ def count_change(amount):
     >>> count_change(100)
     9828
     """
-    if amount <= 0:
-        return 0
-    else:
-        return count_change(amount - 4) + count_change(amount - 2)
+    def count_partitions(n, m):
+        """Count the ways to partition n using parts up to m."""
+        if n == 0:
+            return 1
+        elif n < 0:
+            return 0
+        elif m == 0:
+            return 0
+        else:
+            return count_partitions(n-m, m) + count_partitions(n, m // 2)
+    def max_two(i):
+        while i <= amount:
+            i *= 2
+        return i // 2
+    return count_partitions(amount,max_two(1))
+
 
 ###################
 # Extra Questions #
