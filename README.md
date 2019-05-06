@@ -86,6 +86,25 @@ nothing really happened...
 - [x] lecture
 - [ ] hw04
 
+## WEEK 4
+
+#### COURSE 1
+
+- [x] lecture
+- [ ] lab04
+- [ ] Map(project02)
+
+#### COURSE 2
+
+- [ ] lecture
+
+#### COURSE 3
+
+- [ ] lecture
+- [ ] hw05
+
+
+
 
 
 
