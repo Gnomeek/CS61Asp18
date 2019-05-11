@@ -129,6 +129,28 @@ def pingpong(n):
     True
     """
     "*** YOUR CODE HERE ***"
+    '''
+    you may notice that I have been changed the function has_seven.
+    i, num, incr = 1, 0, 1
+    numlist = []
+    while i <= n:
+        num += incr
+        numlist.append(num)
+        if has_seven(i) or i % 7 == 0:
+            incr *= -1
+        i += 1
+    return numlist
+    '''    
+    def count(i,num,incr):
+        if i == n:
+            return num + incr
+        if has_seven(i):
+            return count(i + 1, num + incr, incr * -1)
+        else:
+            return count(i + 1, num + incr, incr)
+    return count(1, 0, 1)    
+
+
 
 def has_seven(k):
     """Returns True if at least one of the digits of k is a 7, False otherwise.
@@ -150,6 +172,8 @@ def has_seven(k):
         return True
     elif k < 10:
         return False
+    elif k % 7 == 0:
+        return True
     else:
         return has_seven(k // 10)
 

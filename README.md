@@ -84,7 +84,7 @@ nothing really happened...
 #### COURSE 2
 
 - [x] lecture
-- [ ] hw04
+- [x] hw04
 
 ## WEEK 4
 
@@ -96,7 +96,7 @@ nothing really happened...
 
 #### COURSE 2
 
-- [ ] lecture
+- [x] lecture
 
 #### COURSE 3
 
