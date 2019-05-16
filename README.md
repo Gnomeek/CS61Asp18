@@ -100,7 +100,7 @@ nothing really happened...
 
 #### COURSE 3
 
-- [ ] lecture
+- [x] lecture
 - [ ] hw05
 
 
