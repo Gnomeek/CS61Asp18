@@ -91,7 +91,7 @@ nothing really happened...
 #### COURSE 1
 
 - [x] lecture
-- [ ] lab04
+- [x] lab04
 - [ ] Map(project02)
 
 #### COURSE 2
