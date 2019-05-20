@@ -60,7 +60,11 @@ def group_by_centroid(restaurants, centroids):
 def find_centroid(cluster):
     """Return the centroid of the locations of the restaurants in cluster."""
     # BEGIN Question 5
-    "*** YOUR CODE HERE ***"
+    latitude, longtitude = [], []
+    for i in cluster:
+        latitude.append(restaurant_location(i)[0])
+        longtitude.append(restaurant_location(i)[1])
+    return [mean(latitude), mean(longtitude)]
     # END Question 5
 
 
@@ -74,7 +78,11 @@ def k_means(restaurants, k, max_updates=100):
     while old_centroids != centroids and n < max_updates:
         old_centroids = centroids
         # BEGIN Question 6
-        "*** YOUR CODE HERE ***"
+        temp = []
+        cluster = group_by_centroid(restaurants, centroids)
+        for i in cluster:
+            temp.append(find_centroid(i))
+        centroids = temp
         # END Question 6
         n += 1
     return centroids
@@ -102,7 +110,15 @@ def find_predictor(user, restaurants, feature_fn):
     ys = [reviews_by_user[restaurant_name(r)] for r in restaurants]
 
     # BEGIN Question 7
-    b, a, r_squared = 0, 0, 0  # REPLACE THIS LINE WITH YOUR SOLUTION
+    
+    x_diff = [x - mean(xs) for x in xs]
+    y_diff = [y - mean(ys) for y in ys]
+
+    sxy = sum([x_differ * y_differ for x_differ, y_differ in zip(x_diff, y_diff)])
+    sxx = sum([x_differ ** 2 for x_differ in x_diff])
+    syy = sum([y_differ ** 2 for y_differ in y_diff])
+
+    b, a, r_squared = sxy / sxx, mean(ys) - (sxy / sxx * mean(xs)), sxy ** 2 /(sxx * syy)
     # END Question 7
 
     def predictor(restaurant):
@@ -122,7 +138,8 @@ def best_predictor(user, restaurants, feature_fns):
     """
     reviewed = user_reviewed_restaurants(user, restaurants)
     # BEGIN Question 8
-    "*** YOUR CODE HERE ***"
+    pre_combine_r = [find_predictor(user, reviewed, fn) for fn in feature_fns]
+    return max(pre_combine_r, key = lambda x : x[1])[0]
     # END Question 8
 
 
@@ -138,7 +155,14 @@ def rate_all(user, restaurants, feature_fns):
     predictor = best_predictor(user, ALL_RESTAURANTS, feature_fns)
     reviewed = user_reviewed_restaurants(user, restaurants)
     # BEGIN Question 9
-    "*** YOUR CODE HERE ***"
+    rating_dict = {}
+    for n in restaurants:
+        if n not in reviewed:
+            rating_dict[restaurant_name(n)] = predictor(n)
+        else:
+            rating_dict[restaurant_name(n)] = user_rating(user,restaurant_name(n))
+    return rating_dict
+      
     # END Question 9
 
 
@@ -150,7 +174,15 @@ def search(query, restaurants):
     restaurants -- A sequence of restaurants
     """
     # BEGIN Question 10
-    "*** YOUR CODE HERE ***"
+    '''
+    search_success = []
+    for n in restaurants:
+        for j in restaurant_categories(n):
+            if query == j:
+                search_success.append(n)
+    return search_success
+    '''
+    return [n for n in restaurants if query in restaurant_categories(n)]
     # END Question 10
 
 
