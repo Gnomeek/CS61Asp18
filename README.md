@@ -47,8 +47,6 @@ nothing really happened...
 #### COURSE 3
 - [x] lecture
 
-#### EXTRA COURSE 1
-> Newton's Method
 - [x] lecture
 
 
@@ -66,12 +64,6 @@ nothing really happened...
 - [x] lecture
 - [x] HogCheckpoint3 (project01)
 
-#### EXTRA COURSE 2
-
-> Decision
-
-- [ ] lecture
-
 ## WEEK 4
 
 #### COURSE 1
@@ -86,13 +78,13 @@ nothing really happened...
 - [x] lecture
 - [x] hw04
 
-## WEEK 4
+## WEEK 5
 
 #### COURSE 1
 
 - [x] lecture
 - [x] lab04
-- [ ] Map(project02)
+- [x] Map(project02)
 
 #### COURSE 2
 
