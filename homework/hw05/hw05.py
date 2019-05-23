@@ -235,7 +235,15 @@ def balanced(m):
     >>> balanced(mobile(side(1, w), side(1, v)))
     False
     """
-    "*** YOUR CODE HERE ***"
+    if is_weight(m):
+        return size(m)
+    l_torque, r_torque = [total_weight(end(x)) * length(x) for x in sides(m)]
+    if l_torque != r_torque:
+        return False
+    for side in sides(m):
+        if not balanced(end(side)):
+            return False
+    return True
 
 #######
 # OOP #

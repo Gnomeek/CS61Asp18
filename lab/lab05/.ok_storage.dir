@@ -1,0 +1,5 @@
+'map-correct', (0, 70)
+'filter-correct', (512, 70)
+'reduce-correct', (1024, 70)
+'replace_leaf-correct', (1536, 70)
+'acorn_finder-correct', (2048, 70)
