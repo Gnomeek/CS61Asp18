@@ -94,7 +94,17 @@ def replace_leaf(t, old, new):
     >>> laerad == yggdrasil # Make sure original tree is unmodified
     True
     """
-    "*** YOUR CODE HERE ***"
+    def replace(tree):
+        if label(tree) == old and is_leaf(tree):
+            tree[0] = new
+        for branch in branches(tree):
+            replace(branch)
+        return tree
+
+    duplicate_tree = copy_tree(t)
+    
+    return replace(duplicate_tree) 
+
 
 def print_move(origin, destination):
     """Print instructions to move a disk."""
@@ -128,7 +138,13 @@ def move_stack(n, start, end):
     Move the top disk from rod 1 to rod 3
     """
     assert 1 <= start <= 3 and 1 <= end <= 3 and start != end, "Bad start/end"
-    "*** YOUR CODE HERE ***"
+    buffer = 6 - start - end
+    if n == 1:
+        print_move(start, end)
+    else:
+        move_stack(n - 1, start, buffer)
+        move_stack(1, start, end)
+        move_stack(n - 1, buffer, end)
 
 ###########
 # Mobiles #
@@ -166,15 +182,15 @@ def end(s):
 def weight(size):
     """Construct a weight of some size."""
     assert size > 0
-    "*** YOUR CODE HERE ***"
+    return tree(size)
 
 def size(w):
     """Select the size of a weight."""
-    "*** YOUR CODE HERE ***"
+    return label(w)
 
 def is_weight(w):
     """Whether w is a weight, not a mobile."""
-    "*** YOUR CODE HERE ***"
+    return type(label(w)) == int and label(w)>0 and branches(w) == []
 
 def examples():
     t = mobile(side(1, weight(2)),

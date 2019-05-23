@@ -95,6 +95,21 @@ nothing really happened...
 - [x] lecture
 - [ ] hw05
 
+## WEEK 6
+
+#### COURSE 1
+
+- [x] lecture14
+- [ ] lab05
+
+#### COURSE 2
+
+- [ ] lecture15
+
+
+
+
+
 
 
 
