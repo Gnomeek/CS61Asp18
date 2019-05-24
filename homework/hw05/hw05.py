@@ -452,11 +452,11 @@ def make_withdraw(balance, password):
             if amount > balance:
                 return 'Insufficient funds'
             balance = balance -amount
-            return balance
-        
+            return balance        
         else:                
             wrong_password_list.append(input_password)
             return 'Incorrect password'
+
     return withdraw
 
 def make_joint(withdraw, old_password, new_password):
@@ -497,7 +497,18 @@ def make_joint(withdraw, old_password, new_password):
     >>> make_joint(w, 'hax0r', 'hello')
     "Your account is locked. Attempts: ['my', 'secret', 'password']"
     """
-    "*** YOUR CODE HERE ***"
+    request = withdraw(0, old_password)
+    if type(request) == str:
+        return request
+    def joint_withdraw(amount, input_password):
+        password_list = [old_password, new_password]
+        if input_password in password_list:
+            return withdraw(amount, old_password)
+        else:
+            return withdraw(amount, input_password)
+    return joint_withdraw
+
+
 
 ###################
 # Extra Questions #
@@ -509,11 +520,11 @@ def interval(a, b):
 
 def lower_bound(x):
     """Return the lower bound of interval x."""
-    "*** YOUR CODE HERE ***"
+    return x[0]
 
 def upper_bound(x):
     """Return the upper bound of interval x."""
-    "*** YOUR CODE HERE ***"
+    return x[1]
 
 def str_interval(x):
     """Return a string representation of interval x."""
@@ -529,22 +540,26 @@ def add_interval(x, y):
 def mul_interval(x, y):
     """Return the interval that contains the product of any value in x and any
     value in y."""
-    p1 = x[0] * y[0]
-    p2 = x[0] * y[1]
-    p3 = x[1] * y[0]
-    p4 = x[1] * y[1]
-    return [min(p1, p2, p3, p4), max(p1, p2, p3, p4)]
+    p1 = lower_bound(x) * lower_bound(y)
+    p2 = lower_bound(x) * upper_bound(y)
+    p3 = upper_bound(x) * lower_bound(y)
+    p4 = upper_bound(x) * upper_bound(y)
+    lower = min(p1, p2, p3, p4)
+    upper = max(p1, p2, p3, p4)
+    return interval(lower, upper)
 
 def sub_interval(x, y):
     """Return the interval that contains the difference between any value in x
     and any value in y."""
-    "*** YOUR CODE HERE ***"
+    lower = lower_bound(x) - upper_bound(y)
+    upper = upper_bound(x) - lower_bound(y)
+    return interval(lower, upper)
 
 def div_interval(x, y):
     """Return the interval that contains the quotient of any value in x divided by
     any value in y. Division is implemented as the multiplication of x by the
     reciprocal of y."""
-    "*** YOUR CODE HERE ***"
+    assert 1/upper_bound(y) < 1/lower_bound(y) 
     reciprocal_y = interval(1/upper_bound(y), 1/lower_bound(y))
     return mul_interval(x, reciprocal_y)
 
@@ -566,8 +581,8 @@ def check_par():
     >>> lower_bound(x) != lower_bound(y) or upper_bound(x) != upper_bound(y)
     True
     """
-    r1 = interval(1, 1) # Replace this line!
-    r2 = interval(1, 1) # Replace this line!
+    r1 = interval(1, 4) 
+    r2 = interval(1, 5) 
     return r1, r2
 
 def multiple_references_explanation():
@@ -582,7 +597,26 @@ def quadratic(x, a, b, c):
     >>> str_interval(quadratic(interval(1, 3), 2, -3, 1))
     '0 to 10'
     """
-    "*** YOUR CODE HERE ***"
+    def func(x):
+        nonlocal a,b,c
+        return a*x*x + b*x + c
+
+    extreme_point = -b / (2 * a)
+    
+    if a > 0:
+        if lower_bound(x) > extreme_point:
+            return interval(func(lower_bound(x)),func(upper_bound(x)))
+        elif extreme_point < upper_bound(x):
+            return interval(func(extreme_point),min(func(lower_bound(x)),func(upper_bound(x))))
+        elif upper_bound < extreme_point:
+            return interval(func(upper_bound(x)),func(lower_bound(x)))
+    else:
+        if lower_bound(x) > extreme_point:
+            return interval(func(upper_bound(x)),func(lower_bound(x)))
+        elif extreme_point < upper_bound(x):
+            return interval(min(func(lower_bound(x)),func(upper_bound(x))),func(extreme_point))
+        elif upper_bound < extreme_point:
+            return interval(func(lower_bound(x)),func(upper_bound(x)))
 
 def polynomial(x, c):
     """Return the interval that is the range of the polynomial defined by
@@ -596,4 +630,4 @@ def polynomial(x, c):
     '18.0 to 23.0'
     """
     "*** YOUR CODE HERE ***"
-
+    "Simple algebraic problem,Newton's method could be helpful."
