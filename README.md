@@ -104,7 +104,7 @@ nothing really happened...
 
 #### COURSE 2
 
-- [ ] lecture15
+- [x] lecture15
 
 
 

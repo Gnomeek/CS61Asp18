@@ -2,3 +2,8 @@
 'move_stack-correct', (512, 70)
 'total_weight-correct', (1024, 70)
 'balanced-correct', (1536, 70)
+'Account-correct', (2048, 70)
+'FreeChecking-correct', (2560, 70)
+'make_counter-correct', (3072, 70)
+'make_fib-correct', (3584, 70)
+'make_withdraw-correct', (4096, 70)

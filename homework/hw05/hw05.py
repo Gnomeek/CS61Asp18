@@ -291,7 +291,12 @@ class Account:
     def time_to_retire(self, amount):
         """Return the number of years until balance would grow to amount."""
         assert self.balance > 0 and amount > 0 and self.interest > 0
-        "*** YOUR CODE HERE ***"
+        time = 0
+        current_balance = self.balance
+        while current_balance < amount:
+            current_balance *= 1 + self.interest
+            time += 1
+        return time
 
 class FreeChecking(Account):
     """A bank account that charges for withdrawals, but the first two are free!
@@ -319,8 +324,24 @@ class FreeChecking(Account):
     """
     withdraw_fee = 1
     free_withdrawals = 2
+    withdraw_time = 0
 
-    "*** YOUR CODE HERE ***"
+    def __init__(self, account_holder):
+        self.holder = account_holder
+        self.balance = 0
+
+    def withdraw(self, amount):
+        self.withdraw_time += 1
+        if self.withdraw_time > self.free_withdrawals:
+            if amount + self.withdraw_fee> self.balance:
+                return 'Insufficient funds'
+            self.balance = self.balance - amount - self.withdraw_fee
+        else:
+            if amount > self.balance:
+                return 'Insufficient funds'
+            self.balance = self.balance - amount
+        return self.balance
+    
 
 ############
 # Mutation #
@@ -346,7 +367,15 @@ def make_counter():
     >>> c('b') + c2('b')
     5
     """
-    "*** YOUR CODE HERE ***"
+    count_dict = {}
+    def counter(string):
+        nonlocal count_dict
+        if string in count_dict:
+            count_dict[string] +=1
+        else:
+            count_dict[string] = 1
+        return count_dict[string]
+    return counter
 
 def make_fib():
     """Returns a function that returns the next Fibonacci number
@@ -367,7 +396,20 @@ def make_fib():
     >>> fib() + sum([fib2() for _ in range(5)])
     12
     """
-    "*** YOUR CODE HERE ***"
+    count = 0
+    def Fibonacci(num):
+        if num == 1:
+            return 0
+        if num == 2:
+            return 1
+        else:
+            return Fibonacci(num - 1) + Fibonacci(num - 2)
+    def fib():
+        nonlocal count
+        count += 1
+        return Fibonacci(count)
+    return fib 
+
 
 def make_withdraw(balance, password):
     """Return a password-protected withdraw function.
@@ -382,7 +424,7 @@ def make_withdraw(balance, password):
     >>> error
     'Incorrect password'
     >>> new_bal = w(25, 'hax0r')
-    >>> new
+    >>> new_bal
     50
     >>> w(75, 'a')
     'Incorrect password'
@@ -397,7 +439,25 @@ def make_withdraw(balance, password):
     >>> type(w(10, 'l33t')) == str
     True
     """
-    "*** YOUR CODE HERE ***"
+    wrong_password_list = []
+    lock_flag = 0
+    def withdraw(amount, input_password):
+        nonlocal balance, password, lock_flag, wrong_password_list
+
+        if len(wrong_password_list) == 3:
+            lock_flag == 1
+            return "Your account is locked. Attempts: {0}".format(wrong_password_list)
+        
+        if input_password == password and lock_flag == 0:
+            if amount > balance:
+                return 'Insufficient funds'
+            balance = balance -amount
+            return balance
+        
+        else:                
+            wrong_password_list.append(input_password)
+            return 'Incorrect password'
+    return withdraw
 
 def make_joint(withdraw, old_password, new_password):
     """Return a password-protected withdraw function that has joint access to
