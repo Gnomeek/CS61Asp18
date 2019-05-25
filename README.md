@@ -93,22 +93,35 @@ nothing really happened...
 #### COURSE 3
 
 - [x] lecture
-- [ ] hw05
+- [x] hw05
 
 ## WEEK 6
 
 #### COURSE 1
 
 - [x] lecture14
-- [ ] lab05
+- [x] lab05*(some extra problems are unsolved)*
 
 #### COURSE 2
 
 - [x] lecture15
 
+## WEEK 7
 
+#### COURSE 1
 
+- [x] lecture16
+- [ ] lab06
+- [ ] Ant(project03)
 
+#### COURSE 2
+
+- [ ] lecture17
+
+#### COURSE 3
+
+- [ ] lecture18
+- [ ] hw06
 
 
 

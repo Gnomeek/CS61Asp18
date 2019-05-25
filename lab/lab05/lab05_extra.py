@@ -58,13 +58,6 @@ def shakespeare_tokens(path='shakespeare.txt', url='http://composingprograms.com
     tokens = shakespeare_tokens()
     table = build_successors_table(tokens)
 
-def random_sent():
-    import random
-    return construct_sent(random.choice(table['.']), table)
-def sent():
-    return construct_sent('The', table)
-
-sent()
 # Q8
 def prune_leaves(t, vals):
     """Return a modified copy of t with all leaves that have a label
@@ -90,7 +83,11 @@ def prune_leaves(t, vals):
         5
       6
     """
-    "*** YOUR CODE HERE ***"
+    if is_leaf(t) and label(t) in vals:
+        return None
+    new_root = label(t)
+    new_branches = [prune_leaves(branch, vals) for branch in branches(t)]
+    return tree(new_root, new_branches)
 
 # Q9
 def sprout_leaves(t, vals):
@@ -126,7 +123,11 @@ def sprout_leaves(t, vals):
           1
           2
     """
-    "*** YOUR CODE HERE ***"
+    if is_leaf(t):
+        return tree(label(t), [tree(x) for x in vals])
+    new_root = label(t)
+    new_branches = [sprout_leaves(branch, vals) for branch in branches(t)]
+    return tree(new_root, new_branches)
 
 # Q10
 def add_trees(t1, t2):
