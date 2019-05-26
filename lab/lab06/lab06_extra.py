@@ -19,4 +19,10 @@ def vending_machine(snacks):
     >>> vender()
     'chocolate'
     """
-    "*** YOUR CODE HERE ***"
+    count = 0
+    def cycling():
+        nonlocal count,snacks
+        current = snacks[count % len(snacks)]
+        count += 1
+        return current
+    return cycling

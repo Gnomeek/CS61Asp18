@@ -83,11 +83,7 @@ def prune_leaves(t, vals):
         5
       6
     """
-    if is_leaf(t) and label(t) in vals:
-        return None
-    new_root = label(t)
-    new_branches = [prune_leaves(branch, vals) for branch in branches(t)]
-    return tree(new_root, new_branches)
+
 
 # Q9
 def sprout_leaves(t, vals):
