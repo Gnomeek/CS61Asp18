@@ -111,12 +111,12 @@ nothing really happened...
 #### COURSE 1
 
 - [x] lecture16
-- [ ] lab06
+- [x] lab06
 - [ ] Ant(project03)
 
 #### COURSE 2
 
-- [ ] lecture17
+- [x] lecture17
 
 #### COURSE 3
 

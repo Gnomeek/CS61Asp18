@@ -24,7 +24,8 @@ class Place(object):
         self.entrance = None  # A Place
         # Phase 1: Add an entrance to the exit
         # BEGIN Problem 2
-        "*** YOUR CODE HERE ***"
+        if exit != None:
+            exit.entrance = self
         # END Problem 2
 
     def add_insect(self, insect):
@@ -174,14 +175,14 @@ class HarvesterAnt(Ant):
 
     name = 'Harvester'
     implemented = True
-
+    food_cost = 2
     def action(self, colony):
         """Produce 1 additional food for the COLONY.
 
         colony -- The AntColony, used to access game state information.
         """
         # BEGIN Problem 1
-        "*** YOUR CODE HERE ***"
+        colony.food += 1
         # END Problem 1
 
 
@@ -191,7 +192,7 @@ class ThrowerAnt(Ant):
     name = 'Thrower'
     implemented = True
     damage = 1
-
+    food_cost = 3
     def nearest_bee(self, hive):
         """Return the nearest Bee in a Place that is not the HIVE, connected to
         the ThrowerAnt's Place by following entrances.
@@ -199,7 +200,17 @@ class ThrowerAnt(Ant):
         This method returns None if there is no such Bee (or none in range).
         """
         # BEGIN Problem 3 and 4
-        return random_or_none(self.place.bees)
+        current_place = self.place
+        while current_place != hive:
+            if current_place.bees == []:
+                current_place = current_place.entrance
+            else:
+                return random_or_none(current_place.bees)
+        return None
+        
+
+            
+
         # END Problem 3 and 4
 
     def throw_at(self, target):
