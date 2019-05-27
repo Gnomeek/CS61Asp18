@@ -193,6 +193,9 @@ class ThrowerAnt(Ant):
     implemented = True
     damage = 1
     food_cost = 3
+    min_range = 0
+    max_range = float('inf')
+
     def nearest_bee(self, hive):
         """Return the nearest Bee in a Place that is not the HIVE, connected to
         the ThrowerAnt's Place by following entrances.
@@ -201,15 +204,17 @@ class ThrowerAnt(Ant):
         """
         # BEGIN Problem 3 and 4
         current_place = self.place
-        while current_place != hive:
-            if current_place.bees == []:
-                current_place = current_place.entrance
-            else:
-                return random_or_none(current_place.bees)
-        return None
-        
+        current_range = 0
 
-            
+        while current_place != hive:
+            if current_range >= self.min_range and current_range <= self.max_range:
+                if current_place.bees != []:
+                    return random_or_none(current_place.bees)
+            current_place = current_place.entrance
+            current_range += 1
+
+        if current_place == hive:
+            return None
 
         # END Problem 3 and 4
 
@@ -248,7 +253,8 @@ class FireAnt(Ant):
     name = 'Fire'
     damage = 3
     # BEGIN Problem 5
-    implemented = False   # Change to True to view in the GUI
+    food_cost = 5
+    implemented = True   # Change to True to view in the GUI
     # END Problem 5
 
     def reduce_armor(self, amount):
@@ -257,7 +263,11 @@ class FireAnt(Ant):
         the current place.
         """
         # BEGIN Problem 5
-        "*** YOUR CODE HERE ***"
+        self.armor -= amount
+        if self.armor <= 0:
+            for bee in self.place.bees[:]:
+                bee.reduce_armor(self.damage)
+            self.place.remove_insect(self)
         # END Problem 5
 
 
@@ -266,7 +276,9 @@ class LongThrower(ThrowerAnt):
 
     name = 'Long'
     # BEGIN Problem 4
-    implemented = False   # Change to True to view in the GUI
+    implemented = True   # Change to True to view in the GUI
+    food_cost = 2
+    min_range = 5
     # END Problem 4
 
 
@@ -275,7 +287,9 @@ class ShortThrower(ThrowerAnt):
 
     name = 'Short'
     # BEGIN Problem 4
-    implemented = False   # Change to True to view in the GUI
+    implemented = True   # Change to True to view in the GUI
+    food_cost = 2
+    max_range = 3
     # END Problem 4
 
 

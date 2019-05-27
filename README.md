@@ -120,8 +120,60 @@ nothing really happened...
 
 #### COURSE 3
 
-- [ ] lecture18
-- [ ] hw06
+- [x] lecture18
+- [x] hw06
+
+## WEEK 8
+
+#### COURSE 1
+
+- [ ] lecture19
+- [ ] lab07
+
+#### COURSE 2
+
+- [ ] lecture20
+
+#### COURSE 3
+
+- [ ] lecture21
+- [ ] hw07
+
+## WEEK 9
+
+#### COURSE 1
+
+- [ ] lecture22
+- [ ] lab08
+
+#### MIDTERM 2
+
+#### COURSE 2
+
+- [ ] lecture23
+- [ ] hw08
+
+## WEEK 10
+
+#### COURSE 1
+
+- [ ] lecture24
+- [ ] lab09
+
+#### COURSE 2
+
+- [ ] lecture25
+
+#### COURSE 2
+
+- [ ] lecture26
+- [ ] hw09
+
+## WEEK 11
+
+### SPRING BREAK
+
+
 
 
 
