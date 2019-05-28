@@ -127,7 +127,7 @@ nothing really happened...
 
 #### COURSE 1
 
-- [ ] lecture19
+- [x] lecture19
 - [ ] lab07
 
 #### COURSE 2
