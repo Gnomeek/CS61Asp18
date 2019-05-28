@@ -10,7 +10,14 @@ def link_to_list(link):
     >>> link_to_list(Link.empty)
     []
     """
-    "*** YOUR CODE HERE ***"
+    output = []
+    if link == Link.empty:
+        return output
+    while link.rest != Link.empty:
+        output.append(link.first)
+        link = link.rest
+    output.append(link.first)
+    return output
 
 # Q4
 def store_digits(n):
@@ -24,7 +31,14 @@ def store_digits(n):
     >>> store_digits(876)
     Link(8, Link(7, Link(6)))
     """
-    "*** YOUR CODE HERE ***"
+    s = Link.empty
+    while n > 0:
+        n, last = n // 10, n % 10
+        s = Link(last, s)
+    return s
+
+
+
 
 # Q5
 def cumulative_sum(t):
@@ -36,7 +50,9 @@ def cumulative_sum(t):
     >>> t
     Tree(16, [Tree(8, [Tree(5)]), Tree(7)])
     """
-    "*** YOUR CODE HERE ***"
+    for branch in t.branches:
+        cumulative_sum(branch)
+    t.label += sum([branch.label for branch in t.branches])
 
 # Linked List Class
 class Link:
