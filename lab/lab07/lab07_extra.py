@@ -17,7 +17,12 @@ def remove_all(link , value):
     >>> print(l1)
     <0 1>
     """
-    "*** YOUR CODE HERE ***"
+    while link.rest != Link.empty:
+        while link.second == value:
+            link.rest = link.rest.rest
+            if link.rest == Link.empty:
+                return 
+        link = link.rest
 
 # Q7
 def deep_map_mut(fn, link):
@@ -32,7 +37,13 @@ def deep_map_mut(fn, link):
     >>> print(link1)
     <9 <16> 25 36>
     """
-    "*** YOUR CODE HERE ***"
+    while link != Link.empty:
+        if isinstance(link.first, Link):
+            deep_map_mut(fn,link.first)
+        else:
+            link.first = fn(link.first)
+        link = link.rest
+
 
 # Q8
 def has_cycle(link):
@@ -49,7 +60,15 @@ def has_cycle(link):
     >>> has_cycle(u)
     False
     """
-    "*** YOUR CODE HERE ***"
+    link_dic = []
+    while link != Link.empty:
+        if link in link_dic:
+            return True
+        else:
+            link_dic.append(link)
+        link = link.rest
+    return False
+
 
 def has_cycle_constant(link):
     """Return whether link contains a cycle.
@@ -78,4 +97,4 @@ def reverse_other(t):
     >>> t
     Tree(1, [Tree(8, [Tree(3, [Tree(5), Tree(4)]), Tree(6, [Tree(7)])]), Tree(2)])
     """
-    "*** YOUR CODE HERE ***"
+    
