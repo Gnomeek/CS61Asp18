@@ -42,7 +42,13 @@ class Place(object):
                 self.ant = insect
             else:
                 # BEGIN Problem 9
-                assert self.ant is None, 'Two ants in {0}'.format(self)
+                if self.ant.can_contain(insect):
+                    self.ant.contain_ant(insect)
+                elif insect.can_contain(self.ant):
+                    insect.contain_ant(self.ant)
+                    self.ant = insect
+                else:
+                    assert self.ant is None, 'Two ants in {0}'.format(self)
                 # END Problem 9
         else:
             self.bees.append(insect)
@@ -138,7 +144,7 @@ class Bee(Insect):
         """Return True if this Bee cannot advance to the next Place."""
         # Phase 4: Special handling for NinjaAnt
         # BEGIN Problem 7
-        return self.place.ant is not None
+        return self.place.ant is not None and self.place.ant.blocks_path
         # END Problem 7
 
     def action(self, colony):
@@ -158,7 +164,9 @@ class Ant(Insect):
 
     is_ant = True
     implemented = False  # Only implemented Ant classes should be instantiated
+    blocks_path = True
     food_cost = 0
+    container = False
 
     def __init__(self, armor=1):
         """Create an Ant with an ARMOR quantity."""
@@ -166,7 +174,10 @@ class Ant(Insect):
 
     def can_contain(self, other):
         # BEGIN Problem 9
-        "*** YOUR CODE HERE ***"
+        if self.container == True and self.ant == None and other.container == False:
+            return True
+        else:
+            return False
         # END Problem 9
 
 
@@ -215,7 +226,6 @@ class ThrowerAnt(Ant):
 
         if current_place == hive:
             return None
-
         # END Problem 3 and 4
 
     def throw_at(self, target):
@@ -295,6 +305,12 @@ class ShortThrower(ThrowerAnt):
 
 # BEGIN Problem 8
 # The WallAnt class
+class WallAnt(Ant):
+    name = 'Wall'
+    implemented = True
+    food_cost = 4
+    def __init__(self):
+        Ant.__init__(self,4)
 # END Problem 8
 
 
@@ -304,12 +320,15 @@ class NinjaAnt(Ant):
     name = 'Ninja'
     damage = 1
     # BEGIN Problem 7
-    implemented = False   # Change to True to view in the GUI
+    implemented = True   # Change to True to view in the GUI
+    blocks_path = False
+    food_cost = 5
     # END Problem 7
 
     def action(self, colony):
         # BEGIN Problem 7
-        "*** YOUR CODE HERE ***"
+        for bee in self.place.bees[:]:
+            bee.reduce_armor(self.damage)
         # END Problem 7
 
 
@@ -324,22 +343,30 @@ class HungryAnt(Ant):
     """
     name = 'Hungry'
     # BEGIN Problem 6
-    implemented = False   # Change to True to view in the GUI
+    implemented = True   # Change to True to view in the GUI
+    food_cost = 4
+    time_to_digest = 3
     # END Problem 6
 
-    def __init__(self):
+    def __init__(self,):
         # BEGIN Problem 6
-        "*** YOUR CODE HERE ***"
+        Ant.__init__(self)
+        self.digesting = 0
         # END Problem 6
 
     def eat_bee(self, bee):
         # BEGIN Problem 6
-        "*** YOUR CODE HERE ***"
+        bee.reduce_armor(bee.armor)
+        self.digesting = self.time_to_digest
         # END Problem 6
 
     def action(self, colony):
         # BEGIN Problem 6
-        "*** YOUR CODE HERE ***"
+        if self.digesting == 0:
+            if self.place.bees != []:
+                self.eat_bee(random_or_none(self.place.bees))
+        else:
+            self.digesting -= 1
         # END Problem 6
 
 
@@ -347,7 +374,9 @@ class BodyguardAnt(Ant):
     """BodyguardAnt provides protection to other Ants."""
     name = 'Bodyguard'
     # BEGIN Problem 9
-    implemented = False   # Change to True to view in the GUI
+    implemented = True   # Change to True to view in the GUI
+    food_cost = 4
+    container = True
     # END Problem 9
 
     def __init__(self):
@@ -356,12 +385,13 @@ class BodyguardAnt(Ant):
 
     def contain_ant(self, ant):
         # BEGIN Problem 9
-        "*** YOUR CODE HERE ***"
+        self.ant = ant
         # END Problem 9
 
     def action(self, colony):
         # BEGIN Problem 9
-        "*** YOUR CODE HERE ***"
+        if self.ant != None:
+            self.ant.action(colony)
         # END Problem 9
 
 class TankAnt(BodyguardAnt):
@@ -369,12 +399,16 @@ class TankAnt(BodyguardAnt):
     name = 'Tank'
     damage = 1
     # BEGIN Problem 10
-    implemented = False   # Change to True to view in the GUI
+    implemented = True   # Change to True to view in the GUI
+    food_cost = 6
     # END Problem 10
 
     def action(self, colony):
         # BEGIN Problem 10
-        "*** YOUR CODE HERE ***"
+        for bee in self.place.bees[:]:
+            bee.reduce_armor(self.damage)
+        if self.ant != None:
+            self.ant.action(colony)
         # END Problem 10
 
 # BEGIN Problem 13

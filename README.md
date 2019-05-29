@@ -100,7 +100,7 @@ nothing really happened...
 #### COURSE 1
 
 - [x] lecture14
-- [x] lab05*(some extra problems are unsolved)*
+- [x] lab05 (some extra problems are unsolved)
 
 #### COURSE 2
 
@@ -112,7 +112,7 @@ nothing really happened...
 
 - [x] lecture16
 - [x] lab06
-- [ ] Ant(project03)
+- [x] AntPhase1,2(project03)
 
 #### COURSE 2
 
@@ -128,7 +128,8 @@ nothing really happened...
 #### COURSE 1
 
 - [x] lecture19
-- [ ] lab07
+- [x] lab07 (some extra problems are unsolved)
+- [x] AntPhase3(project03)
 
 #### COURSE 2
 
