@@ -37,7 +37,7 @@ nothing really happened...
 #### COURSE 1
 - [x] lecture
 - [x] lab01
-- [x] HogCheckpoint1 (project01)
+- [x] Hog(project01)Checkpoint1
 
 #### COURSE 2
 - [x] lecture
@@ -54,7 +54,7 @@ nothing really happened...
 #### COURSE 1
 - [x] lecture
 - [x] lab02
-- [x] HogCheckpoint2 (project01)
+- [x] Hog(project01)Checkpoint2
 
 #### COURSE 2
 - [x] lecture
@@ -62,7 +62,7 @@ nothing really happened...
 
 #### COURSE 3
 - [x] lecture
-- [x] HogCheckpoint3 (project01)
+- [x] Hog(project01)Checkpoint3
 
 ## WEEK 4
 
@@ -112,7 +112,7 @@ nothing really happened...
 
 - [x] lecture16
 - [x] lab06
-- [x] AntPhase1,2(project03)
+- [x] Ant(project03)Phase1,2
 
 #### COURSE 2
 
@@ -129,11 +129,12 @@ nothing really happened...
 
 - [x] lecture19
 - [x] lab07 (some extra problems are unsolved)
-- [x] AntPhase3(project03)
+- [x] Ant(project03)Phase3
 
 #### COURSE 2
 
-- [ ] lecture20
+- [x] lecture20
+- [x] Ant(project03)Phase4
 
 #### COURSE 3
 

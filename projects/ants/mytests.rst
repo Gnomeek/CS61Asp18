@@ -7,8 +7,17 @@ Suite 1
 
 	>>> from ants import *
 
-	Case Example
-		>>> x = 5
-		>>> x
-		5
+	Case 1
+		>>> import ants, importlib
+		>>> importlib.reload(ants)
+		>>> hive = ants.Hive(ants.AssaultPlan())
+		>>> dimensions = (2, 9)
+		>>> colony = ants.AntColony(None, hive, ants.ant_types(),
+		    ants.dry_layout, dimensions)
+		>>> ants.bees_win = lambda: None
+		>>> queen = ants.QueenAnt()
+		>>> impostor = ants.QueenAnt()
+		>>> impostor.true_queen
+		False
+
 
