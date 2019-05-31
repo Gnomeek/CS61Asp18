@@ -138,8 +138,8 @@ nothing really happened...
 
 #### COURSE 3
 
-- [ ] lecture21
-- [ ] hw07
+- [x] lecture21
+- [x] hw07
 
 ## WEEK 9
 
