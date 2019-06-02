@@ -145,14 +145,14 @@ nothing really happened...
 
 #### COURSE 1
 
-- [ ] lecture22
+- [x] lecture22
 - [ ] lab08
 
 #### MIDTERM 2
 
 #### COURSE 2
 
-- [ ] lecture23
+- [x] lecture23
 - [ ] hw08
 
 ## WEEK 10

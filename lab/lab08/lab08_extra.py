@@ -25,17 +25,20 @@ class Keyboard:
     """
 
     def __init__(self, *args):
-        "*** YOUR CODE HERE ***"
-
+        self.buttons = [*args]
     def press(self, info):
         """Takes in a position of the button pressed, and
         returns that button's output"""
-        "*** YOUR CODE HERE ***"
+        self.buttons[info].pressed += 1
+        return self.buttons[info].key
 
     def typing(self, typing_input):
         """Takes in a list of positions of buttons pressed, and
         returns the total output"""
-        "*** YOUR CODE HERE ***"
+        output = ''
+        for n in typing_input:
+            output += self.press(n)
+        return output
 
 class Button:
     def __init__(self, pos, key):
@@ -73,7 +76,25 @@ def make_advanced_counter_maker():
     >>> tom_counter('global-count')
     1
     """
-    "*** YOUR CODE HERE ***"
+    global_count = 0
+    def make_counter():
+        local_count = 0
+        def counter(inputs):
+            nonlocal global_count
+            nonlocal local_count
+            if inputs == 'count':
+                local_count += 1
+                return local_count
+            elif inputs == 'global-count':
+                global_count += 1
+                return global_count
+            elif inputs == 'reset':
+                local_count = 0
+            elif inputs == 'global-reset':
+                global_count = 0
+        return counter
+
+    return make_counter
 
 # Lists
 def trade(first, second):
@@ -104,10 +125,18 @@ def trade(first, second):
     [4, 3, 1, 4, 1]
     """
     m, n = 1, 1
+    flag = 0
+    min_length = min(len(first), len(second))
+    while m <= min_length and n <= min_length:
+        if sum(first[:m]) > sum(second[:n]):
+            n += 1
+        elif sum(first[:m]) < sum(second[:n]):
+            m += 1
+        else:
+            flag = 1
+            break
 
-    "*** YOUR CODE HERE ***"
-
-    if False: # change this line!
+    if flag: # change this line!
         first[:m], second[:n] = second[:n], first[:m]
         return 'Deal!'
     else:
