@@ -158,7 +158,16 @@ def make_to_string(front, mid, back, empty_repr):
     >>> jerrys_to_string(Link.empty)
     '()'
     """
-    "*** YOUR CODE HERE ***"
+    def print_link(link):
+        if link == Link.empty:
+            return empty_repr        
+        if link.rest == Link.empty:
+            return front + str(link.first) + mid + empty_repr + back
+        else:
+            return front + str(link.first) + mid + print_link(link.rest) +back
+        
+    return print_link
+
 
 def tree_map(fn, t):
     """Maps the function fn over the entries of t and returns the
@@ -182,7 +191,9 @@ def tree_map(fn, t):
           128
         256
     """
-    "*** YOUR CODE HERE ***"
+    t.label = fn(t.label)
+    t.branches = [tree_map(fn, branch) for branch in t.branches]       
+    return t
 
 def long_paths(tree, n):
     """Return a list of all paths in tree with length at least n.
@@ -213,7 +224,16 @@ def long_paths(tree, n):
     >>> long_paths(whole, 4)
     [Link(0, Link(11, Link(12, Link(13, Link(14)))))]
     """
-    "*** YOUR CODE HERE ***"
+    paths = []
+    if tree.is_leaf() and n <= 0:
+        paths.append(Link(tree.label))
+
+    for branch in tree.branches:
+        for path in long_paths(branch, n-1):
+            paths.append(Link(tree.label, path))
+    return paths
+
+
 
 # Orders of Growth
 def zap(n):
