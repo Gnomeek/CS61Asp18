@@ -146,7 +146,7 @@ nothing really happened...
 #### COURSE 1
 
 - [x] lecture22
-- [ ] lab08
+- [x] lab08
 
 #### MIDTERM 2
 
