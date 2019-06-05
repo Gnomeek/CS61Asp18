@@ -159,7 +159,7 @@ nothing really happened...
 
 #### COURSE 1
 
-- [ ] lecture24
+- [x] lecture24
 - [ ] lab09
 
 #### COURSE 2

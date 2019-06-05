@@ -7,29 +7,26 @@ test = {
         {
           'code': r"""
           scm> (cddr '(1 2 3 4))
-          1a182ccdac5b512e78d2db0e7cd35aae
-          # locked
+          (3 4)
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         },
         {
           'code': r"""
           scm> (cadr '(1 2 3 4))
-          bec7b0c91bdcb548cda9e9f3546cf0d7
-          # locked
+          2
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         },
         {
           'code': r"""
           scm> (caddr '(1 2 3 4))
-          400b880bd4ddd7622658a2c6ab1656de
-          # locked
+          3
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         }
       ],
       'scored': True,

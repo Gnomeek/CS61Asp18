@@ -7,44 +7,38 @@ test = {
         {
           'code': r"""
           scm> (cond ((= 1 1) 42))
-          56dd53120ef1986c202a7ccf82080809
-          # locked
+          42
           scm> (cond ((= 1 1) 42) ((= 1 1) 24))
-          56dd53120ef1986c202a7ccf82080809
-          # locked
+          42
           scm> (cond ((= 1 0) 42) ((= 0 1) 24) (else 999))
-          fd2f1e10fd8310f4d5b75ff1f88e0e4e
-          # locked
+          999
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         },
         {
           'code': r"""
           scm> (sign -42)
-          def5a8c3e39d76dfbcb66189bf0d3593
-          # locked
+          -1
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         },
         {
           'code': r"""
           scm> (sign 0)
-          5ca79ce4fb57688138ae494e7845eb74
-          # locked
+          0
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         },
         {
           'code': r"""
           scm> (sign 42)
-          38dac9033a8f5e8edb2dbe6428e02d1d
-          # locked
+          1
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         }
       ],
       'scored': True,
