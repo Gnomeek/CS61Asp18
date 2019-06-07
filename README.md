@@ -153,7 +153,7 @@ nothing really happened...
 #### COURSE 2
 
 - [x] lecture23
-- [ ] hw08
+- [x] hw08
 
 ## WEEK 10
 

@@ -7,29 +7,26 @@ test = {
         {
           'code': r"""
           scm> (union odds (list 2 3 4 5))
-          b508d9788e632b435080d8782722d95a
-          # locked
+          (2 3 4 5 7 9)
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         },
         {
           'code': r"""
           scm> (union odds (list 2 4 6 8))
-          400dd77941418602f756fd5494d75871
-          # locked
+          (2 3 4 5 6 7 8 9)
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         },
         {
           'code': r"""
           scm> (union odds eight)
-          cf2b660c05a45a5cad9c9bfb2077b35f
-          # locked
+          (1 2 3 4 5 6 7 8 9)
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         }
       ],
       'scored': True,
