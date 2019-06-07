@@ -160,11 +160,11 @@ nothing really happened...
 #### COURSE 1
 
 - [x] lecture24
-- [ ] lab09
+- [x] lab09
 
 #### COURSE 2
 
-- [ ] lecture25
+- [x] lecture25
 
 #### COURSE 2
 

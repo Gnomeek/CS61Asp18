@@ -34,7 +34,10 @@
 )
 
 (define (nodots s)
-  'YOUR-CODE-HERE
+  (cond ((null? s) s)
+        ((pair? (car s)) (cons (car s) (cons (nodots (cdr s)))))
+        (else (cons (car s) (cons (nodots (cdr s)))))
+  )
 )
 
 ; Sets as sorted lists
@@ -46,7 +49,6 @@
           'YOUR-CODE-HERE
           (else nil) ; replace this line
           ))
-
 ; Equivalent Python code, for your reference:
 ;
 ; def empty(s):
