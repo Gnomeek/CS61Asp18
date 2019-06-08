@@ -168,7 +168,7 @@ nothing really happened...
 
 #### COURSE 2
 
-- [ ] lecture26
+- [x] lecture26
 - [ ] hw09
 
 ## WEEK 11
