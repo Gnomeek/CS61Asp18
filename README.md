@@ -166,7 +166,7 @@ nothing really happened...
 
 - [x] lecture25
 
-#### COURSE 2
+#### COURSE 3
 
 - [x] lecture26
 - [ ] hw09
@@ -177,9 +177,74 @@ nothing really happened...
 
 
 
+## WEEK 12
 
+#### COURSE 1
 
+- [x] lecture27
+- [ ] lab10
+- [ ] Scheme(project04)
 
+#### COURSE 2
+
+- [ ] lecture28
+
+#### COURSE 3
+
+- [ ] lecture29
+- [ ] hw10
+
+## WEEK 13
+
+#### COURSE 1
+
+- [ ] lecture30
+- [ ] lab11
+
+#### COURSE 2
+
+- [ ] lecture31
+
+#### COURSE 3
+
+- [ ] lecture32
+- [ ] hw11
+
+## WEEK 14
+
+#### COURSE 1
+
+- [ ] lecture33
+- [ ] lab12
+
+#### COURSE 2
+
+- [ ] lecture34
+
+#### COURSE 3
+
+- [ ] lecture35
+- [ ] hw12
+
+## WEEK 15
+
+#### COURSE 1
+
+- [ ] lecture36
+- [ ] lab13
+
+#### COURSE 2
+
+- [ ] lecture37
+
+#### COURSE 3
+
+- [ ] Conclusion
+- [ ] hw13
+
+## WEEK 16
+
+#### FINAL
 
 
 
