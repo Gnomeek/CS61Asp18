@@ -109,7 +109,10 @@ class Name(Expr):
         ...     print('Exception raised!')
         Exception raised!
         """
-        "*** YOUR CODE HERE ***"
+        if self.string in env:
+            return env[self.string]
+        else:
+            raise NameError('the name does not exist in the current environment')
 
     def __str__(self):
         return self.string
@@ -175,7 +178,12 @@ class CallExpr(Expr):
         >>> read('add(mul(3, 4), b)').eval(new_env)
         Number(14)
         """
-        "*** YOUR CODE HERE ***"
+        operator = self.operator.eval(env)
+        operands = [operands.eval(env) for operands in self.operands]
+        if isinstance(operator, LambdaFunction) or isinstance(operator, PrimitiveFunction):
+            return operator.apply(operands)
+        else:
+            return operator.eval(operands)
 
     def __str__(self):
         function = str(self.operator)
@@ -285,7 +293,10 @@ class LambdaFunction(Value):
         if len(self.parameters) != len(arguments):
             raise TypeError("Cannot match parameters {} to arguments {}".format(
                 comma_separated(self.parameters), comma_separated(arguments)))
-        "*** YOUR CODE HERE ***"
+        duplicate_env = self.parent.copy()
+        for para, arg in zip(self.parameters, arguments):
+            duplicate_env[para] = arg
+        return self.body.eval(duplicate_env)
 
     def __str__(self):
         definition = LambdaExpr(self.parameters, self.body)
