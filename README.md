@@ -182,12 +182,12 @@ nothing really happened...
 #### COURSE 1
 
 - [x] lecture27
-- [ ] lab10
-- [ ] Scheme(project04)
+- [x] lab10
+- [x] Scheme(project04)Part 0,1
 
 #### COURSE 2
 
-- [ ] lecture28
+- [x] lecture28
 
 #### COURSE 3
 
