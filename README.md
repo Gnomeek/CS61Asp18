@@ -188,6 +188,7 @@ nothing really happened...
 #### COURSE 2
 
 - [x] lecture28
+- [x] Scheme(project04)Part 2Section1
 
 #### COURSE 3
 
