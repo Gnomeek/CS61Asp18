@@ -169,7 +169,7 @@ nothing really happened...
 #### COURSE 3
 
 - [x] lecture26
-- [x] hw09(without differentiation part)
+- [x] hw09
 
 ## WEEK 11
 
@@ -192,7 +192,7 @@ nothing really happened...
 
 #### COURSE 3
 
-- [ ] lecture29
+- [x] lecture29
 - [ ] hw10
 
 ## WEEK 13
