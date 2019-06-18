@@ -1,23 +1,25 @@
 test = {
-  'name': 'derive-exp',
+  'name': 'accumulate',
   'points': 1,
   'suites': [
     {
       'cases': [
         {
           'code': r"""
-          scm> (derive x^2 'x) ; Remember products have the form (* a b)
-          (* 2 x)
-          scm> (derive x^3 'x)
-          (* 3 (^ x 2))
+          scm> (define (identity x) x)
+          identity
+          scm> (accumulate * 1 5 identity)
+          120
           """,
           'hidden': False,
           'locked': False
         },
         {
           'code': r"""
-          scm> (derive (make-sum x^3 x^2) 'x)
-          (+ (* 3 (^ x 2)) (* 2 x))
+          scm> (define (square x) (* x x))
+          square
+          scm> (accumulate + 0 5 square)
+          55
           """,
           'hidden': False,
           'locked': False
@@ -25,9 +27,7 @@ test = {
       ],
       'scored': True,
       'setup': r"""
-      scm> (load 'hw09)
-      scm> (define x^2 (make-exp 'x 2))
-      scm> (define x^3 (make-exp 'x 3))
+      scm> (load 'hw10)
       """,
       'teardown': '',
       'type': 'scheme'
