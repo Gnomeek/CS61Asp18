@@ -193,7 +193,7 @@ nothing really happened...
 #### COURSE 3
 
 - [x] lecture29
-- [ ] hw10
+- [x] hw10
 
 ## WEEK 13
 
