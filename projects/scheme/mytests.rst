@@ -10,4 +10,10 @@ Suite 1
     Case Example
         >>> scheme_read(Buffer(tokenize_lines(['nil'])))
         nil
+Suite 2
 
+    >>> from scheme_reader import *
+
+    Case And
+        >>> (and (+ 1 1))
+        2

@@ -266,13 +266,27 @@ def do_if_form(expressions, env):
 def do_and_form(expressions, env):
     """Evaluate a (short-circuited) and form."""
     # BEGIN PROBLEM 13
-    "*** YOUR CODE HERE ***"
+    if expressions == nil:
+        return True
+    while expressions.second != nil:
+        if scheme_truep(scheme_eval(expressions.first, env)):
+            expressions = expressions.second
+        else:
+            return False
+    return scheme_eval(expressions.first, env)
     # END PROBLEM 13
 
 def do_or_form(expressions, env):
     """Evaluate a (short-circuited) or form."""
     # BEGIN PROBLEM 13
-    "*** YOUR CODE HERE ***"
+    if expressions == nil:
+        return False
+    while expressions != nil:
+        if scheme_truep(scheme_eval(expressions.first, env)):
+            return scheme_eval(expressions.first, env)
+        else:
+            expressions = expressions.second
+    return False
     # END PROBLEM 13
 
 def do_cond_form(expressions, env):
@@ -288,7 +302,10 @@ def do_cond_form(expressions, env):
             test = scheme_eval(clause.first, env)
         if scheme_truep(test):
             # BEGIN PROBLEM 14
-            "*** YOUR CODE HERE ***"
+            if clause.second == nil:
+                return test
+            else:
+                return eval_all(clause.second, env)
             # END PROBLEM 14
         expressions = expressions.second
 
@@ -306,7 +323,15 @@ def make_let_frame(bindings, env):
     if not scheme_listp(bindings):
         raise SchemeError('bad bindings list in let form')
     # BEGIN PROBLEM 15
-    "*** YOUR CODE HERE ***"
+    formals, vals = nil, nil
+    while bindings != nil:
+        cur = bindings.first
+        check_form(cur, 2, 2)
+        formals = Pair(cur.first, formals)
+        vals = Pair(eval_all(cur.second, env), vals)
+        bindings = bindings.second
+    check_formals(formals)
+    return env.make_child_frame(formals, vals)
     # END PROBLEM 15
 
 def do_define_macro(expressions, env):

@@ -188,7 +188,7 @@ nothing really happened...
 #### COURSE 2
 
 - [x] lecture28
-- [x] Scheme(project04)Part 2Section1
+- [x] Scheme(project04)Part 2‘Some Core Functionality’
 
 #### COURSE 3
 
@@ -201,15 +201,18 @@ nothing really happened...
 
 - [x] lecture30
 - [x] lab11
+- [x] Scheme(project04)Part 2‘User-Defined Procedures’
 
 #### COURSE 2
 
 - [ ] lecture31
+- [ ] Scheme(project04)Part 2‘Special Forms’
 
 #### COURSE 3
 
 - [ ] lecture32
 - [ ] hw11
+- [ ] Scheme(project04)Part 3
 
 ## WEEK 14
 
