@@ -16,7 +16,13 @@ def hailstone(n):
     2
     1
     """
-    "*** YOUR CODE HERE ***"
+    yield n
+    while n != 1:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = n * 3 + 1
+        yield n
 
 # Q6
 def repeated(t, k):
@@ -31,7 +37,22 @@ def repeated(t, k):
     None
     """
     assert k > 1
-    "*** YOUR CODE HERE ***"
+    if type(t) == list:
+        cur, i = t[0], 1
+        while k > 1:
+            temp = t[i]
+            if cur == temp:
+                k -= 1
+            cur = temp
+    else:
+        cur = next(t)
+        while k > 1:
+            temp = next(t)
+            if cur == temp:
+                k -= 1
+            cur = temp    
+    return cur
+
 
 # Q7
 def merge(s0, s1):
@@ -53,7 +74,24 @@ def merge(s0, s1):
     """
     i0, i1 = iter(s0), iter(s1)
     e0, e1 = next(i0, None), next(i1, None)
-    "*** YOUR CODE HERE ***"
+    while e0 != None or e1 != None:
+        if e0 == None:
+            yield e1
+            e1 = next(i1, None)
+        elif e1 == None:
+            yield e0
+            e0 = next(i0, None)
+        else:    
+            if e0 == e1:
+                yield e0
+                e0 = next(i0, None) 
+                e1 = next(i1, None)
+            elif e0 < e1:
+                yield e0
+                e0 = next(i0, None)           
+            else:
+                yield e1
+                e1 = next(i1, None)
 
 # Q8
 def remainders_generator(m):
@@ -78,7 +116,13 @@ def remainders_generator(m):
     7
     11
     """
-    "*** YOUR CODE HERE ***"
+    def remainder(k):
+        i = 0
+        while True:
+            yield m * i + k
+            i += 1
+    for j in range(m):
+        yield remainder(j)
 
 # Q9
 def zip_generator(*iterables):
@@ -93,4 +137,10 @@ def zip_generator(*iterables):
     [1, 4, 7]
     [2, 5, 8]
     """
-    "*** YOUR CODE HERE ***"
+    min_length = min([len(iter) for iter in iterables])
+    i = 0
+    for j in zip(*iterables):
+        yield list(j)
+        i += 1
+        if i == min_length:
+            break

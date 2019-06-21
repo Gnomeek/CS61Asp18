@@ -199,8 +199,8 @@ nothing really happened...
 
 #### COURSE 1
 
-- [ ] lecture30
-- [ ] lab11
+- [x] lecture30
+- [x] lab11
 
 #### COURSE 2
 

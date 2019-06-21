@@ -14,7 +14,14 @@ def scale(s, k):
     >>> [next(m) for _ in range(5)]
     [2, 4, 6, 8, 10]
     """
-    "*** YOUR CODE HERE ***"
+    for i in s:
+        yield i * k
+    """extra challenge:
+       try writing this function using a yield from statement
+    scale = map(lambda x : x * k, s)
+    yield from scale
+    """
+
 
 # Q2
 def trap(s, k):
@@ -38,7 +45,13 @@ def trap(s, k):
     >>> next(t2)
     ValueError
     """
-    "*** YOUR CODE HERE ***"
+    flag = 0
+    for i in s:
+        yield i
+        flag += 1
+        if flag == k:
+            raise ValueError
+
 
 # the naturals generator is used for testing scale and merge functions
 def naturals():
