@@ -108,8 +108,13 @@ class Frame:
         <{a: 1, b: 2, c: 3} -> <Global Frame>>
         """
         child = Frame(self) # Create a new child with self as the parent
-        # BEGIN PROBLEM 11
-        "*** YOUR CODE HERE ***"
+        # BEGIN PROBLEM 11            
+        while formals != nil and vals != nil:
+            child.define(formals.first, vals.first)
+            formals, vals = formals.second, vals.second
+        if formals != nil or vals != nil:
+            child.bindings = {}
+            raise SchemeError('the number of formal parameters does not match the number of values')
         # END PROBLEM 11
         return child
 
@@ -175,7 +180,7 @@ class LambdaProcedure(Procedure):
         """Make a frame that binds my formal parameters to ARGS, a Scheme list
         of values, for a lexically-scoped call evaluated in environment ENV."""
         # BEGIN PROBLEM 12
-        "*** YOUR CODE HERE ***"
+        return self.env.make_child_frame(self.formals, args)
         # END PROBLEM 12
 
     def __str__(self):
@@ -221,7 +226,9 @@ def do_define_form(expressions, env):
         # END PROBLEM 6
     elif isinstance(target, Pair) and scheme_symbolp(target.first):
         # BEGIN PROBLEM 10
-        "*** YOUR CODE HERE ***"
+        evaluated = LambdaProcedure(target.second, expressions.second, env)
+        env.define(target.first, evaluated)
+        return target.first
         # END PROBLEM 10
     else:
         bad_target = target.first if isinstance(target, Pair) else target
