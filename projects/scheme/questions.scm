@@ -6,16 +6,25 @@
 ; Some utility functions that you may find useful to implement.
 
 (define (cons-all first rests)
-  'replace-this-line)
+  'replace-this-line
+  )
 
 (define (zip pairs)
-  'replace-this-line)
+  'replace-this-line
+  )
 
 ;; Problem 17
 ;; Returns a list of two-element lists
 (define (enumerate s)
   ; BEGIN PROBLEM 17
-  'replace-this-line
+  (define (index n s)
+    (if (equal? s nil)
+        nil
+        (cons 
+              (cons n (cons (car s) nil)) 
+              (index (+ n 1) (cdr s))))
+  )
+  (index 0 s)
   )
   ; END PROBLEM 17
 
