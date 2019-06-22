@@ -205,8 +205,8 @@ nothing really happened...
 
 #### COURSE 2
 
-- [ ] lecture31
-- [ ] Scheme(project04)Part 2‘Special Forms’
+- [x] lecture31
+- [x] Scheme(project04)Part 2‘Special Forms’
 
 #### COURSE 3
 
