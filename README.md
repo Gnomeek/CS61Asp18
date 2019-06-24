@@ -8,7 +8,7 @@ So it would be great for me to receive your stars and I hope that this can reall
 
 ### some relevant url:
 
-[Book](http://composingprograms.com/)
+[Material](http://composingprograms.com/)
 
 [CoursePage](https://inst.eecs.berkeley.edu/~cs61a/sp18/)
 
