@@ -212,7 +212,7 @@ nothing really happened...
 
 - [x] lecture32
 - [x] hw11
-- [ ] Scheme(project04)Part 3
+- [x] Scheme(project04)Part 3‘Write Some Scheme’
 
 ## WEEK 14
 
