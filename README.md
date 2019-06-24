@@ -210,8 +210,8 @@ nothing really happened...
 
 #### COURSE 3
 
-- [ ] lecture32
-- [ ] hw11
+- [x] lecture32
+- [x] hw11
 - [ ] Scheme(project04)Part 3
 
 ## WEEK 14
