@@ -223,12 +223,12 @@ nothing really happened...
 
 #### COURSE 2
 
-- [ ] lecture34
+- [x] lecture34
 
 #### COURSE 3
 
-- [ ] lecture35
-- [ ] hw12
+- [x] lecture35
+- [x] hw12
 
 ## WEEK 15
 
