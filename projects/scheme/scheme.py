@@ -645,7 +645,7 @@ def create_global_frame():
 @main
 def run(*argv):
     import argparse
-    parser = argparse.ArgumentParser(description='CS 61A Scheme Interpreter')
+    parser = argparse.ArgumentParser(description='Scheme Interpreter <inspired by SICP produced by Gnomeek')
     parser.add_argument('-load', '-i', action='store_true',
                        help='run file interactively')
     parser.add_argument('file', nargs='?',
