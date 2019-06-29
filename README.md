@@ -234,17 +234,17 @@ nothing really happened...
 
 #### COURSE 1
 
-- [ ] lecture36
+- [x] lecture36
 - [ ] lab13
 
 #### COURSE 2
 
-- [ ] lecture37
+- [x] lecture37
 
 #### COURSE 3
 
-- [ ] Conclusion
-- [ ] hw13
+- [x] Conclusion
+- [x] hw13
 
 ## WEEK 16
 

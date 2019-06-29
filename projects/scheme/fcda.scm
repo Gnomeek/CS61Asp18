@@ -1,0 +1,11 @@
+(define (has-cycle-constant s)
+  (define (FCDA s cur)
+  	(cond ((or (equal? nil (cdr-stream cur)) (equal? nil cur)) #f)
+  		  ((eq? s cur) #t)
+  		  (else (FCDA (cdr-stream s) 
+  		  					(cdr-stream (cdr-stream cur))))
+  	)
+  )
+
+  (FCDA s (cdr-stream s))
+)
