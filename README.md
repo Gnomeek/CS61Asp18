@@ -235,7 +235,7 @@ nothing really happened...
 #### COURSE 1
 
 - [x] lecture36
-- [ ] lab13
+- [x] lab13
 
 #### COURSE 2
 

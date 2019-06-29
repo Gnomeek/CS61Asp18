@@ -1,0 +1,7 @@
+'compose-all-correct', (0, 70)
+'tail replicate-correct', (512, 70)
+'permutations-correct', (1024, 70)
+'rle-correct', (1536, 70)
+'insert-correct', (2048, 70)
+'deep-map-correct', (2560, 70)
+'tally-correct', (3072, 70)

@@ -1,6 +1,14 @@
 ; Q4
 (define (rle s)
-  'YOUR-CODE-HERE
+  (define (counter next pre count)
+  	(cond ((null? next) (cons-stream (list pre count) nil))
+  		  ((= pre (car next)) (counter (cdr-stream next) pre (+ count 1)))
+  		  (else (cons-stream (list pre count) (counter (cdr-stream next) (car next) 1)))
+  	)
+  )
+  (if (null? s)
+  	nil
+  	(counter (cdr-stream s) (car s) 1))
 )
 
 ; Q4 testing functions
@@ -16,13 +24,21 @@
 
 ; Q5
 (define (insert n s)
-  'YOUR-CODE-HERE
+  (define (helper n s pre)
+  	(cond ((null? s) (append pre (list n)))
+  		  ((<= n (car s)) (append (append pre (list n)) s))
+  		  (else (helper n (cdr s) (append pre (list (car s)))))
+  	)
+  )
+  (helper n s ())
 )
 
 ; Q6
 (define (deep-map fn s)
-  'YOUR-CODE-HERE
-  nil
+	(cond ((null? s) nil)
+		  ((list? (car s)) (cons (deep-map fn (car s)) (deep-map fn (cdr s))))
+		  (else (cons (fn (car s)) (deep-map fn (cdr s))))
+	)
 )
 
 ; Q7
@@ -40,17 +56,18 @@
 
 ; Implementing and using these helper procedures is optional. You are allowed
 ; to delete them.
-(define (unique s)
-  'YOUR-CODE-HERE
-  nil
-)
 
 (define (count name s)
-  'YOUR-CODE-HERE
-  nil
+	(cond ((null? s) 0)
+		  ((eq? (car s) name) (+ 1 (count name (cdr s))))
+		  (else (count name (cdr s)))
+	)
 )
 
 (define (tally names)
-  'YOUR-CODE-HERE
-  nil
+	(if (null? names)
+		nil
+		(cons (cons (car names) (count (car names) names))
+		(tally (filter (lambda (x) (not (eq? x (car names)))) (cdr names))))
+	)
 )
